@@ -82,7 +82,7 @@ while (true)
        
         foreach (string item in orderedList)
         {
-            //Console.WriteLine( $"{item}",$"{shoppingItems[item]}");
+            
             Console.WriteLine(String.Format("{0,-10} | {1,-10}", $"{item}", $"{shoppingItems[item]}"));
             sum += shoppingItems[item];
         }
