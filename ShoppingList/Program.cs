@@ -22,7 +22,7 @@ void DisplayMenu()
     Console.WriteLine("The Items on the menu are");
     foreach (KeyValuePair<string,Double> item in shoppingItems)
     {
-        string menu = $"{item.Key}         ${item.Value}";
+        string menu = String.Format("{0,-10} | {1,-10}", $"{item.Key} ", $"${item.Value}");
         Console.WriteLine(menu);
     }
 }
@@ -82,7 +82,8 @@ while (true)
        
         foreach (string item in orderedList)
         {
-            Console.WriteLine($"{item} {shoppingItems[item]}");
+            //Console.WriteLine( $"{item}",$"{shoppingItems[item]}");
+            Console.WriteLine(String.Format("{0,-10} | {1,-10}", $"{item}", $"{shoppingItems[item]}"));
             sum += shoppingItems[item];
         }
         average = Math.Round(sum / orderedList.Count, 2);
@@ -92,6 +93,7 @@ while (true)
         break;
     }
 }
+
 
 
 
