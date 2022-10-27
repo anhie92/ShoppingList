@@ -89,7 +89,7 @@ while (true)
         average = Math.Round(sum / orderedList.Count, 2);
         
         Console.WriteLine($"your total will be ${sum}");
-        Console.WriteLine($"your average price per item is {average}");
+        Console.WriteLine($"your average price per item is ${average}");
         break;
     }
 }
