@@ -62,6 +62,15 @@ while (true)
         shoppingList.Add(order);
         Console.WriteLine($"you added {order} at ${price} ");
     }
+
+    // attempt to orderby price
+    List<string> orderedList = shoppingList
+        .Where(x => shoppingItems.ContainsKey(x))
+        .OrderByDescending(x => shoppingItems.Values)
+        .Select(x => x)
+        .ToList();
+    
+
     Console.WriteLine("would you like to order anything else? (y/n)");
     string addToOrder = Console.ReadLine().ToLower();
     if(addToOrder != "y")
@@ -71,12 +80,13 @@ while (true)
         Console.WriteLine("Thanks your for your order");
         Console.WriteLine("here is what you got");
        
-        foreach (string item in shoppingList)
+        foreach (string item in orderedList)
         {
             Console.WriteLine($"{item} {shoppingItems[item]}");
             sum += shoppingItems[item];
         }
-        average = sum / shoppingList.Count;
+        average = Math.Round(sum / orderedList.Count, 2);
+        
         Console.WriteLine($"your total will be ${sum}");
         Console.WriteLine($"your average price per item is {average}");
         break;
